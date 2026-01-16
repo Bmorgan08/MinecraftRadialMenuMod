@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "radialkeybindmenu",
+	"version": "${version}",
+	"name": "RadialKeybindMenu",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/radialkeybindmenu/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"bmorgan.radialmodmenu.RadialKeybindMenu"
+		],
+		"client": [
+			"bmorgan.radialmodmenu.RadialKeybindMenuClient"
+		]
+	},
+	"mixins": [
+		"radialkeybindmenu.mixins.json",
+		{
+			"config": "radialkeybindmenu.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
