@@ -18,24 +18,21 @@ public class RadialKeybindMenuClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         openMenuKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
-            "key.radialkeybindmenu.open",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_R,
-            KeyMapping.Category.MISC
-        ));
+                "key.radialkeybindmenu.open",
+                InputConstants.Type.KEYSYM,
+                GLFW.GLFW_KEY_R,
+                KeyMapping.Category.MISC));
 
         configMenuKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
-            "key.radialkeybindmenu.config",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_UNKNOWN,  // unbound by default
-            KeyMapping.Category.MISC
-        ));
+                "key.radialkeybindmenu.config",
+                InputConstants.Type.KEYSYM,
+                GLFW.GLFW_KEY_UNKNOWN, // unbound by default
+                KeyMapping.Category.MISC));
 
         hud = new RadialMenuHud();
         HudElementRegistry.addLast(
-            Identifier.fromNamespaceAndPath(RadialKeybindMenu.MOD_ID, "radial_menu"),
-            hud
-        );
+                Identifier.fromNamespaceAndPath(RadialKeybindMenu.MOD_ID, "radial_menu"),
+                hud);
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openMenuKey.consumeClick()) {
