@@ -2,9 +2,9 @@
 
 A mod that adds a radial menu system for triggering keybinds without needing a free key for each one. Designed for heavily modded packs (e.g. Create, Botania, etc.) where you run out of keyboard space.
 
-Fabric support covers Minecraft 1.20.4 through 26.2 (see [Compatibility](#compatibility) below). A Forge port is planned — not available yet.
+Fabric support covers Minecraft 1.20.4 through 26.2, and NeoForge support covers 1.21.1 through 26.2 (see [Compatibility](#compatibility) below). A legacy Forge port (1.8–1.20.1) is planned — not available yet.
 
-This repo is a monorepo: Fabric lives in [`fabric/`](fabric/), Forge will live in `forge/` once it's added.
+This repo is a monorepo: Fabric lives in [`fabric/`](fabric/), NeoForge lives in [`neoforge/`](neoforge/), Forge will live in `forge/` once it's added.
 
 ## How it works
 
@@ -57,6 +57,23 @@ Not supported: anything before 1.20.4, or 26.3+ (Mojang replaced GLFW with SDL3 
 
 Requires Java 21.
 
+### NeoForge
+
+Also built with Stonecutter — one source tree targeting Minecraft 1.21.1 through 26.2.
+
+| Minecraft version | NeoForge |
+| ------------------ | -------- |
+| 1.21.1              | 21.1.99  |
+| 1.21.5              | 21.5.98  |
+| 1.21.8              | 21.8.9   |
+| 1.21.11             | 21.11.44 |
+| 26.1                | 26.1.2.84 |
+| 26.2                | 26.2.0.28-beta |
+
+Not supported: 1.20.2–1.20.4 (NeoForge's earliest builds don't publish artifact metadata the current tooling can resolve), or 26.3+ (same SDL3 cutoff as Fabric).
+
+Requires Java 21 for 1.21.x, Java 25 for 26.1+.
+
 ### Forge
 
-Planned, not available yet.
+A separate legacy Forge port (1.8–1.20.1) is planned, not available yet. This will be a distinct codebase from the Fabric/NeoForge one, since Forge's API and tooling changed too much across that range to share source.

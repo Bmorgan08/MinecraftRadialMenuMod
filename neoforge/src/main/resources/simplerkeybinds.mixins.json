@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "xyz.cahbyben.simplerkeybinds.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "KeyMappingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
