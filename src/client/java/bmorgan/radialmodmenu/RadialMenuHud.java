@@ -1,11 +1,23 @@
 package bmorgan.radialmodmenu;
 
+//? if >=1.21.6 {
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElement;
+//?}
+//? if >=26.1 {
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+//?} else {
+/*import net.minecraft.client.gui.GuiGraphics;
+*///?}
+//? if >=1.20.5 {
 import net.minecraft.client.DeltaTracker;
+//?}
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
 
+//? if >=1.21.6 {
 public class RadialMenuHud implements HudElement {
+//?} else {
+/*public class RadialMenuHud {
+*///?}
 
     private int activeWheel = 0;
     public static RadialMenuConfig config = RadialMenuConfig.load();
@@ -14,10 +26,25 @@ public class RadialMenuHud implements HudElement {
     private static final int SLOT_BOX_W = 60;
     private static final int SLOT_BOX_H = 16;
 
+    //? if >=26.1 {
     @Override
+    public void extractRenderState(GuiGraphicsExtractor gfx, DeltaTracker delta) {
+        // All rendering is done by RadialMenuScreen while the wheel is open.
+    }
+    //?} else if >=1.21.6 {
+    /*@Override
     public void render(GuiGraphics gfx, DeltaTracker delta) {
         // All rendering is done by RadialMenuScreen while the wheel is open.
     }
+    *///?} else if >=1.20.5 {
+    /*public void renderHudCallback(GuiGraphics gfx, DeltaTracker delta) {
+        // All rendering is done by RadialMenuScreen while the wheel is open.
+    }
+    *///?} else {
+    /*public void renderHudCallback(GuiGraphics gfx, float tickDelta) {
+        // All rendering is done by RadialMenuScreen while the wheel is open.
+    }
+    *///?}
 
     // Slots: 0=top-right (dx>=0,dy<0), 1=bottom-right (dx>=0,dy>=0),
     //        2=bottom-left (dx<0,dy>=0), 3=top-left (dx<0,dy<0)
@@ -31,7 +58,11 @@ public class RadialMenuHud implements HudElement {
         return 3;
     }
 
-    public void renderWheel(GuiGraphics gfx, int mouseX, int mouseY) {
+    //? if >=26.1 {
+    public void renderWheel(GuiGraphicsExtractor gfx, int mouseX, int mouseY) {
+    //?} else {
+    /*public void renderWheel(GuiGraphics gfx, int mouseX, int mouseY) {
+    *///?}
         Minecraft mc = Minecraft.getInstance();
         int screenW = mc.getWindow().getGuiScaledWidth();
         int screenH = mc.getWindow().getGuiScaledHeight();
@@ -66,7 +97,11 @@ public class RadialMenuHud implements HudElement {
             String customName = slotNames != null ? slotNames[i] : null;
             String label = customName != null && !customName.isEmpty() ? customName
                          : hasBinding ? slots[i] : "Empty";
-            gfx.drawString(mc.font, label, lx + 4, ly + 4, 0xFFFFFFFF);
+            //? if >=26.1 {
+            gfx.text(mc.font, label, lx + 4, ly + 4, 0xFFFFFFFF);
+            //?} else {
+            /*gfx.drawString(mc.font, label, lx + 4, ly + 4, 0xFFFFFFFF);
+            *///?}
         }
 
         // Wheel tabs
@@ -75,14 +110,27 @@ public class RadialMenuHud implements HudElement {
             int ty = cy - RADIUS - 38;
             int tabColor = (w == activeWheel) ? 0xCC4477CC : 0xCC222222;
             gfx.fill(tx, ty, tx + 26, ty + 14, tabColor);
-            gfx.drawString(mc.font, "W" + (w + 1), tx + 6, ty + 3, 0xFFFFFFFF);
+            //? if >=26.1 {
+            gfx.text(mc.font, "W" + (w + 1), tx + 6, ty + 3, 0xFFFFFFFF);
+            //?} else {
+            /*gfx.drawString(mc.font, "W" + (w + 1), tx + 6, ty + 3, 0xFFFFFFFF);
+            *///?}
         }
 
-        gfx.drawString(mc.font, "[1/2/3] Wheel  [C] Config  [ESC] Close",
+        //? if >=26.1 {
+        gfx.text(mc.font, "[1/2/3] Wheel  [C] Config  [ESC] Close",
                 cx - 90, cy + RADIUS + SLOT_BOX_H + 8, 0xFFAAAAAA);
+        //?} else {
+        /*gfx.drawString(mc.font, "[1/2/3] Wheel  [C] Config  [ESC] Close",
+                cx - 90, cy + RADIUS + SLOT_BOX_H + 8, 0xFFAAAAAA);
+        *///?}
     }
 
-    private void drawCircleSlices(GuiGraphics gfx, int cx, int cy, int r, int hoveredSlot) {
+    //? if >=26.1 {
+    private void drawCircleSlices(GuiGraphicsExtractor gfx, int cx, int cy, int r, int hoveredSlot) {
+    //?} else {
+    /*private void drawCircleSlices(GuiGraphics gfx, int cx, int cy, int r, int hoveredSlot) {
+    *///?}
         // Slots: 0=top-right, 1=bottom-right, 2=bottom-left, 3=top-left
         // Split is a plain plus: left vs right by sign of dx, top vs bottom by sign of dy.
         int deadR2   = 20 * 20;
