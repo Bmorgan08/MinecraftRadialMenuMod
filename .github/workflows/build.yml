@@ -7,8 +7,11 @@ name: build
 on: [pull_request, push]
 
 jobs:
-  build:
+  fabric:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: fabric
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
@@ -21,10 +24,10 @@ jobs:
           distribution: 'microsoft'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
-      - name: build
-        run: ./gradlew build
+      - name: build all versions
+        run: ./gradlew :1.20.4:build :1.21.5:build :1.21.6:build :1.21.8:build :1.21.9:build :1.21.11:build :26.1.2:build :26.2:build
       - name: capture build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
-          path: build/libs/
+          name: Fabric Artifacts
+          path: fabric/versions/*/build/libs/*.jar
