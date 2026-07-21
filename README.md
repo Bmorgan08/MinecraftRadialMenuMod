@@ -40,18 +40,18 @@ Works with any mod that registers standard `KeyMapping` bindings (Create, Botani
 
 ### Fabric
 
-Built with [Stonecutter](https://stonecutter.kikugie.dev) — one source tree targeting Minecraft 1.20.4 through 26.2. Grab the jar matching your Minecraft version from [Releases](../../releases) or Modrinth.
+Built with [Stonecutter](https://stonecutter.kikugie.dev) — one source tree targeting Minecraft 1.20.4 through 26.2. Grab the jar matching your Minecraft version from Modrinth.
 
-| Minecraft version | Fabric API | Fabric Loader |
-| ------------------ | ---------- | -------------- |
-| 1.20.4              | 0.97.3+    | 0.19.3+        |
-| 1.21.5              | 0.128.2+   | 0.19.3+        |
-| 1.21.6              | 0.128.2+   | 0.19.3+        |
-| 1.21.8              | 0.136.1+   | 0.19.3+        |
-| 1.21.9              | 0.134.1+   | 0.19.3+        |
-| 1.21.11             | 0.141.5+   | 0.18.4+        |
-| 26.1 / 26.1.1 / 26.1.2 | 0.155.2+ | 0.19.3+      |
-| 26.2                | 0.155.2+   | 0.19.3+        |
+| Minecraft version      | Fabric API | Fabric Loader |
+| ---------------------- | ---------- | ------------- |
+| 1.20.4                 | 0.97.3+    | 0.19.3+       |
+| 1.21.5                 | 0.128.2+   | 0.19.3+       |
+| 1.21.6                 | 0.128.2+   | 0.19.3+       |
+| 1.21.8                 | 0.136.1+   | 0.19.3+       |
+| 1.21.9                 | 0.134.1+   | 0.19.3+       |
+| 1.21.11                | 0.141.5+   | 0.18.4+       |
+| 26.1 / 26.1.1 / 26.1.2 | 0.155.2+   | 0.19.3+       |
+| 26.2                   | 0.155.2+   | 0.19.3+       |
 
 Not supported: anything before 1.20.4, or 26.3+ (Mojang replaced GLFW with SDL3 that version, which needs its own rework).
 
