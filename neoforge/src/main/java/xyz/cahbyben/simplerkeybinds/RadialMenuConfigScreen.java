@@ -73,7 +73,6 @@ public class RadialMenuConfigScreen extends Screen {
         addWidget(nameBox);
     }
 
-    // Category as a plain string key, regardless of whether KeyMapping.Category exists (1.21.9+) or not.
     private static String categoryKey(KeyMapping km) {
         //? if >=1.21.9 {
         return km.getCategory().id().toString();
@@ -82,7 +81,6 @@ public class RadialMenuConfigScreen extends Screen {
         *///?}
     }
 
-    // Human-readable category label.
     private static String categoryLabel(KeyMapping km) {
         //? if >=1.21.9 {
         return km.getCategory().label().getString();
