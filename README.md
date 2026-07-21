@@ -40,7 +40,7 @@ Works with any mod that registers standard `KeyMapping` bindings (Create, Botani
 
 ### Fabric
 
-Built with [Stonecutter](https://stonecutter.kikugie.dev) — one source tree targeting Minecraft 1.20.4 through 26.2. Grab the jar matching your Minecraft version from Modrinth.
+Built with [Stonecutter](https://stonecutter.kikugie.dev) — one source tree targeting Minecraft 1.20.4 through 26.2. Grab the jar matching your Minecraft version from [Modrinth](https://modrinth.com/mod/simpler-keybinds).
 
 | Minecraft version      | Fabric API | Fabric Loader |
 | ---------------------- | ---------- | ------------- |
